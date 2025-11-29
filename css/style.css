@@ -1,0 +1,52 @@
+body{
+    font-family: 'Tiny5', sans-serif;
+    text-align: center;
+}
+
+p{
+    font-size: 25px;
+}
+
+h1{
+    font-size: 60px;
+}
+
+li{
+    font-size: 25px;
+    color: black;
+}
+
+.recuadro{
+    background-color: rgb(168, 203, 234);
+    width: 80%;
+    padding: 15px 10px;
+    height: auto;
+    margin: auto;
+    border-radius: 25px;
+}
+.cuerpo{
+   
+    margin: auto;
+  
+}
+
+.listaact{
+    background-color: rgb(168, 203, 234);
+    width: 150%;
+    margin: auto;
+    padding: 20px 30px;
+    border-radius: 25px;
+}
+
+.columnaact{
+    display: inline-block;
+    margin-right: 200px
+}   
+
+.foto{
+    width: 200px;
+    height: auto;
+    margin: auto;
+    border-radius: 15px;
+    
+}
