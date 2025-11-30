@@ -5,8 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora Expresiones Algebraicas</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
     <style>
-      :root {
+    /* ==================== VARIABLES DE COLOR ==================== */
+    :root {
         --main-bg: #0a0a12;
         --secondary-bg: #151520;
         --accent-blue: #00a8f3;
@@ -16,34 +20,40 @@
         --text-secondary: #a0a0c0;
         --border-glow: rgba(0, 168, 243, 0.3);
         --terminal-green: #00ff00;
-      }
 
-      * {
+        /* Colores del estilo anterior para la fusión */
+        --dark-violet: rgb(71, 8, 129);
+        --bright-turquoise: turquoise;
+    }
+
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-      }
+    }
 
-      body {
+    /* ==================== FONDO Y FUENTE GENERAL ==================== */
+    body {
         font-family: "Courier New", "Monaco", monospace;
         line-height: 1.6;
         color: var(--text-primary);
         background-color: var(--main-bg);
+        /* Manteniendo el patrón de fondo ciberpunk */
         background-image:
-          radial-gradient(
-            circle at 10% 20%,
-            rgba(138, 43, 226, 0.05) 0%,
-            transparent 20%
-          ),
-          radial-gradient(
-            circle at 90% 80%,
-            rgba(0, 168, 243, 0.05) 0%,
-            transparent 20%
-          );
+            radial-gradient(
+                circle at 10% 20%,
+                rgba(138, 43, 226, 0.05) 0%,
+                transparent 20%
+            ),
+            radial-gradient(
+                circle at 90% 80%,
+                rgba(0, 168, 243, 0.05) 0%,
+                transparent 20%
+            );
         min-height: 100vh;
-      }
+    }
 
-      body::after {
+    body::after {
         content: "";
         position: fixed;
         top: 0;
@@ -51,28 +61,30 @@
         width: 100%;
         height: 100%;
         background: repeating-linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.15) 0px,
-          rgba(0, 0, 0, 0.15) 1px,
-          transparent 1px,
-          transparent 2px
+            0deg,
+            rgba(0, 0, 0, 0.15) 0px,
+            rgba(0, 0, 0, 0.15) 1px,
+            transparent 1px,
+            transparent 2px
         );
         pointer-events: none;
         z-index: 100;
-      }
+    }
 
-      header {
+    /* ==================== ENCABEZADO Y TÍTULOS ==================== */
+    header {
         background-color: rgba(10, 10, 18, 0.9);
         color: var(--text-primary);
         text-align: center;
         padding: 2rem 1rem;
-        border-bottom: 1px solid var(--border-glow);
-        box-shadow: 0 0 15px var(--accent-blue);
+        /* Usando el color violeta oscuro y turquesa del estilo anterior para el glow */
+        border-bottom: 1px solid var(--bright-turquoise);
+        box-shadow: 0 0 15px var(--dark-violet);
         position: relative;
         overflow: hidden;
-      }
+    }
 
-      header::before {
+    header::before {
         content: "";
         position: absolute;
         top: 0;
@@ -80,334 +92,317 @@
         width: 100%;
         height: 2px;
         background: linear-gradient(
-          90deg,
-          transparent,
-          var(--accent-blue),
-          transparent
+            90deg,
+            transparent,
+            var(--bright-turquoise),
+            transparent
         );
         animation: scanline 3s linear infinite;
-      }
+    }
 
-      @keyframes scanline {
+    @keyframes scanline {
         0% {
-          left: -100%;
+            left: -100%;
         }
         100% {
-          left: 100%;
+            left: 100%;
         }
-      }
+    }
 
-      header h1 {
-        font-size: 2.5rem;
+    header h1 {
+        /* Estilo de h1 del CSS anterior (más grande, color violeta) */
+        font-size: 3.5rem; /* Ajustado para que quepa bien */
         font-weight: 700;
         margin-bottom: 0.5rem;
-        text-shadow: 0 0 10px var(--accent-blue);
+        color: var(--dark-violet);
+        text-shadow: 0 0 15px var(--dark-violet), 0 0 5px var(--bright-turquoise);
         letter-spacing: 2px;
-      }
+        font-family: 'Tiny5', sans-serif; /* Fuente del estilo anterior */
+    }
 
-      .subtitle {
-        font-size: 1.2rem;
-        color: var(--text-secondary);
-        text-shadow: 0 0 5px var(--accent-purple);
-      }
+    .subtitle {
+        /* Estilo de p/h3 del CSS anterior (color turquesa) */
+        font-size: 1.5rem;
+        color: var(--bright-turquoise);
+        text-shadow: 0 0 8px var(--bright-turquoise);
+        font-family: 'Tiny5', sans-serif; /* Fuente del estilo anterior */
+    }
 
-      .container {
+    .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem 1rem;
         display: flex;
         flex-direction: column;
         gap: 2rem;
-      }
+    }
 
-      .converter-grid {
+    /* Títulos de columnas y secciones */
+    .column h2,
+    .json-loader-section h2,
+    .info-section h2,
+    .history-section h2 {
+        /* Unificando títulos con el color turquesa del estilo anterior */
+        color: var(--bright-turquoise);
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--dark-violet);
+        padding-bottom: 0.5rem;
+        text-shadow: 0 0 8px var(--bright-turquoise);
+        font-family: 'Tiny5', sans-serif; /* Fuente del estilo anterior */
+    }
+
+
+    /* ==================== COLUMNAS Y FORMULARIOS ==================== */
+    .converter-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
-      }
+    }
 
-      .column {
+    .column {
         background-color: var(--secondary-bg);
-        border: 1px solid var(--border-glow);
-        border-radius: 4px;
+        border: 2px solid var(--dark-violet); /* Borde violeta */
+        border-radius: 25px; /* Más redondeado como el CSS anterior */
         padding: 1.5rem;
-        box-shadow: 0 0 10px rgba(0, 168, 243, 0.1);
+        box-shadow: 0 0 15px rgba(71, 8, 129, 0.5); /* Sombra violeta */
         transition: all 0.3s ease;
         position: relative;
-      }
+    }
 
-      .column:hover {
-        box-shadow: 0 0 15px var(--accent-blue);
-        border-color: var(--accent-blue);
-      }
+    .column:hover {
+        box-shadow: 0 0 20px var(--bright-turquoise); /* Glow turquesa al pasar el ratón */
+        border-color: var(--bright-turquoise);
+    }
 
-      .column h2 {
-        color: var(--accent-blue);
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        text-align: center;
-        border-bottom: 1px solid var(--accent-purple);
-        padding-bottom: 0.5rem;
-        text-shadow: 0 0 5px currentColor;
-      }
-
-      .input-group {
-        margin-bottom: 1rem;
-      }
-
-      .input-group label {
+    .input-group label {
         display: block;
-        color: var(--text-secondary);
+        color: var(--bright-turquoise); /* Etiquetas en turquesa */
         font-weight: 600;
         margin-bottom: 0.5rem;
-        text-shadow: 0 0 3px var(--accent-purple);
-      }
+        text-shadow: 0 0 5px var(--dark-violet);
+        font-family: 'Tiny5', sans-serif;
+        font-size: 1.1rem;
+    }
 
-      textarea {
+    textarea {
         width: 100%;
         padding: 0.75rem;
-        border: 1px solid var(--border-glow);
-        border-radius: 2px;
+        border: 1px solid var(--dark-violet);
+        border-radius: 8px;
         font-size: 1rem;
         font-family: inherit;
         resize: vertical;
         transition: all 0.3s ease;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.5);
         color: var(--text-primary);
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
-      }
+        box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7);
+    }
 
-      textarea:focus {
+    textarea:focus {
         outline: none;
-        border-color: var(--accent-blue);
+        border-color: var(--bright-turquoise);
         box-shadow:
-          0 0 10px var(--accent-blue),
+          0 0 10px var(--bright-turquoise),
           inset 0 0 5px rgba(0, 0, 0, 0.5);
-      }
+    }
 
-      textarea::placeholder {
-        color: var(--text-secondary);
-        font-style: italic;
-      }
-
-      .convert-button {
+    /* ==================== BOTONES DE CONVERSIÓN ==================== */
+    .convert-button {
         width: 100%;
-        background: linear-gradient(to bottom, var(--secondary-bg), #000);
-        color: var(--text-primary);
-        border: 1px solid var(--accent-blue);
-        padding: 0.75rem 1rem;
-        border-radius: 2px;
-        font-size: 1rem;
+        background: linear-gradient(to bottom, var(--dark-violet), #000);
+        color: var(--bright-turquoise);
+        border: 2px solid var(--bright-turquoise);
+        padding: 1rem 1rem;
+        border-radius: 10px;
+        font-size: 1.2rem;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
-        text-shadow: 0 0 5px currentColor;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .convert-button:hover {
-        background: linear-gradient(to bottom, #000, var(--secondary-bg));
-        box-shadow: 0 0 15px var(--accent-blue);
         text-shadow: 0 0 10px currentColor;
-      }
-
-      .convert-button:active {
-        transform: translateY(1px);
-      }
-
-      .json-loader-section {
-        background-color: var(--secondary-bg);
-        border: 1px solid var(--border-glow);
-        border-radius: 4px;
-        padding: 1.5rem;
-        box-shadow: 0 0 10px rgba(0, 168, 243, 0.1);
-      }
-
-      .json-loader-section h2 {
-        color: var(--accent-blue);
-        margin-bottom: 1rem;
-        text-align: center;
-        text-shadow: 0 0 5px currentColor;
-      }
-
-      .json-loader {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .file-input-wrapper {
         position: relative;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      #json-file-input {
-        display: none;
-      }
-
-      .file-input-label {
-        background: linear-gradient(to bottom, var(--secondary-bg), #000);
-        color: var(--text-primary);
-        border: 1px solid var(--accent-purple);
-        padding: 0.5rem 1rem;
-        border-radius: 2px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        text-shadow: 0 0 3px currentColor;
-      }
-
-      .file-input-label:hover {
-        box-shadow: 0 0 10px var(--accent-purple);
-        border-color: var(--accent-pink);
-      }
-
-      .file-name {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        max-width: 200px;
         overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
+        font-family: 'Tiny5', sans-serif;
+    }
 
-      .load-button {
+    .convert-button:hover {
+        background: linear-gradient(to bottom, #000, var(--dark-violet));
+        box-shadow: 0 0 20px var(--bright-turquoise);
+        text-shadow: 0 0 15px currentColor;
+    }
+
+    /* ==================== RESULTADOS ==================== */
+    .result-section {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--dark-violet);
+    }
+
+    .result-content h4 {
+        color: var(--bright-turquoise);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        text-shadow: 0 0 5px currentColor;
+        font-family: 'Tiny5', sans-serif;
+    }
+
+    .result-output {
+        /* Fondo de resultado similar al anterior (oscuridad profunda) */
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 1px solid var(--bright-turquoise);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        font-family: "Courier New", monospace;
+        font-size: 1.2rem;
+        min-height: 60px;
+        color: var(--terminal-green);
+        text-shadow: 0 0 5px currentColor;
+        box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.3);
+    }
+
+    /* ==================== BOTONES DE ACCIÓN (Evaluación, Carga, Historia) ==================== */
+
+    /* Botones de Evaluación */
+    .satisfactory-btn,
+    .improve-btn,
+    .add-pattern-btn {
         background: linear-gradient(to bottom, var(--secondary-bg), #000);
         color: var(--text-primary);
-        border: 1px solid var(--accent-blue);
-        padding: 0.5rem 1rem;
-        border-radius: 2px;
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
         cursor: pointer;
-        font-weight: 600;
+        flex: 1;
+        min-width: 120px;
         transition: all 0.3s ease;
         text-shadow: 0 0 3px currentColor;
-      }
+        font-weight: bold;
+    }
 
-      .load-button:hover:not(:disabled) {
-        box-shadow: 0 0 10px var(--accent-blue);
-      }
+    .satisfactory-btn {
+        border: 1px solid #10b981;
+    }
 
-      .load-button:disabled {
-        background: #333;
-        border-color: #555;
-        color: #777;
-        cursor: not-allowed;
-      }
+    .satisfactory-btn:hover {
+        box-shadow: 0 0 10px #10b981;
+    }
 
-      .reset-button {
-        background: linear-gradient(to bottom, var(--secondary-bg), #000);
-        color: var(--text-primary);
+    .improve-btn {
         border: 1px solid var(--accent-purple);
+    }
+
+    .improve-btn:hover {
+        box-shadow: 0 0 10px var(--accent-purple);
+    }
+
+    .add-pattern-btn {
+        border: 1px solid var(--accent-blue);
+    }
+
+    .add-pattern-btn:hover {
+        box-shadow: 0 0 10px var(--accent-blue);
+    }
+
+
+    /* Botones de Carga/Reset */
+    .file-input-label,
+    .load-button,
+    .reset-button {
+        background: linear-gradient(to bottom, var(--secondary-bg), #000);
+        color: var(--text-primary);
         padding: 0.5rem 1rem;
         border-radius: 2px;
         cursor: pointer;
         font-weight: 600;
         transition: all 0.3s ease;
         text-shadow: 0 0 3px currentColor;
-      }
+    }
 
-      .reset-button:hover {
+    .file-input-label {
+        border: 1px solid var(--dark-violet); /* Etiqueta de archivo con borde violeta */
+    }
+
+    .file-input-label:hover {
+        box-shadow: 0 0 10px var(--dark-violet);
+        border-color: var(--accent-pink);
+    }
+
+    .load-button {
+        border: 1px solid var(--bright-turquoise); /* Botón de carga con borde turquesa */
+    }
+
+    .load-button:hover:not(:disabled) {
+        box-shadow: 0 0 10px var(--bright-turquoise);
+    }
+
+    .reset-button {
+        border: 1px solid var(--accent-purple);
+    }
+
+    .reset-button:hover {
         box-shadow: 0 0 10px var(--accent-purple);
         border-color: var(--accent-pink);
-      }
+    }
 
-      .info-section {
+    /* ==================== SECCIONES DE INFORMACIÓN E HISTORIAL ==================== */
+    .json-loader-section,
+    .info-section,
+    .history-section {
         background-color: var(--secondary-bg);
-        border: 1px solid var(--border-glow);
-        border-radius: 4px;
+        border: 2px solid var(--dark-violet);
+        border-radius: 25px; /* Más redondeado */
         padding: 1.5rem;
-        box-shadow: 0 0 10px rgba(0, 168, 243, 0.1);
-      }
+        box-shadow: 0 0 15px rgba(71, 8, 129, 0.5);
+    }
 
-      .info-section h2 {
-        color: var(--accent-blue);
-        margin-bottom: 1rem;
-        text-align: center;
-        text-shadow: 0 0 5px currentColor;
-      }
-
-      .info-cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 1rem;
-      }
-
-      .info-card {
+    .info-card {
         background: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.3),
-          var(--secondary-bg)
+            to bottom,
+            rgba(0, 0, 0, 0.3),
+            var(--secondary-bg)
         );
-        border: 1px solid var(--border-glow);
-        border-radius: 2px;
+        border: 1px solid var(--bright-turquoise); /* Borde turquesa */
+        border-radius: 8px;
         padding: 1rem;
         text-align: center;
         transition: all 0.3s ease;
-      }
+    }
 
-      .info-card:hover {
+    .info-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 0 10px var(--accent-blue);
+        box-shadow: 0 0 15px var(--bright-turquoise);
         border-color: var(--accent-blue);
-      }
+    }
 
-      .info-card h3 {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-
-      .metric {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .metric-number {
-        font-size: 1.8rem;
+    .metric-number {
+        font-size: 2rem;
         font-weight: 700;
         color: var(--terminal-green);
-        margin-bottom: 0.25rem;
-        text-shadow: 0 0 5px currentColor;
-      }
+        text-shadow: 0 0 8px var(--terminal-green);
+    }
 
-      .metric-label {
-        font-size: 0.8rem;
-        color: var(--text-secondary);
-      }
+    .metric-label {
+        color: var(--bright-turquoise); /* Etiquetas en turquesa */
+    }
 
-      .history-section {
-        background-color: var(--secondary-bg);
-        border: 1px solid var(--border-glow);
-        border-radius: 4px;
-        padding: 1.5rem;
-        box-shadow: 0 0 10px rgba(0, 168, 243, 0.1);
-      }
 
-      .history-section h2 {
-        color: var(--accent-blue);
-        margin-bottom: 1rem;
-        text-align: center;
-        text-shadow: 0 0 5px currentColor;
-      }
+    .history-list {
+        max-height: 300px;
+        overflow-y: auto;
+        border: 1px solid var(--bright-turquoise);
+        border-radius: 8px;
+        padding: 1rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        box-shadow: inset 0 0 10px rgba(0, 191, 255, 0.3);
+    }
 
-      .history-controls {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        margin-bottom: 1rem;
-      }
 
-      .clear-button,
-      .export-button {
+    .clear-button,
+    .export-button {
         padding: 0.5rem 1rem;
-        border-radius: 2px;
+        border-radius: 4px;
         border: 1px solid;
         font-weight: 600;
         cursor: pointer;
@@ -415,179 +410,70 @@
         background: linear-gradient(to bottom, var(--secondary-bg), #000);
         color: var(--text-primary);
         text-shadow: 0 0 3px currentColor;
-      }
+    }
 
-      .clear-button {
+    .clear-button {
         border-color: #ff4444;
-      }
+    }
 
-      .clear-button:hover {
-        box-shadow: 0 0 10px #ff4444;
-        border-color: #ff6666;
-      }
+    .export-button {
+        border-color: var(--bright-turquoise);
+    }
 
-      .export-button {
-        border-color: var(--accent-purple);
-      }
-
-      .export-button:hover {
-        box-shadow: 0 0 10px var(--accent-purple);
-        border-color: var(--accent-pink);
-      }
-
-      .history-list {
-        max-height: 300px;
-        overflow-y: auto;
-        border: 1px solid var(--border-glow);
-        border-radius: 2px;
-        padding: 1rem;
-        background-color: rgba(0, 0, 0, 0.3);
-      }
-
-      .no-history {
-        text-align: center;
-        color: var(--text-secondary);
-        font-style: italic;
-      }
-
-      footer {
+    /* ==================== PIE DE PÁGINA ==================== */
+    footer {
         background-color: rgba(10, 10, 18, 0.9);
         color: var(--text-primary);
         text-align: center;
         padding: 1.5rem;
         margin-top: 2rem;
-        border-top: 1px solid var(--border-glow);
-        box-shadow: 0 0 15px var(--accent-blue);
-      }
+        border-top: 1px solid var(--bright-turquoise);
+        box-shadow: 0 0 15px var(--dark-violet);
+    }
 
-      footer p {
-        margin-bottom: 0.25rem;
+    footer p {
         color: var(--text-secondary);
-      }
+        font-family: 'Tiny5', sans-serif;
+    }
 
-      @media (max-width: 768px) {
+    /* MANTENER MEDIA QUERIES EXISTENTES */
+    @media (max-width: 768px) {
         .converter-grid {
-          grid-template-columns: 1fr;
+            grid-template-columns: 1fr;
         }
 
         header h1 {
-          font-size: 2rem;
+            font-size: 2.5rem;
         }
 
         .subtitle {
-          font-size: 1rem;
+            font-size: 1.2rem;
         }
 
         .container {
-          padding: 1rem;
+            padding: 1rem;
         }
 
         .json-loader {
-          flex-direction: column;
-          align-items: stretch;
+            flex-direction: column;
+            align-items: stretch;
         }
 
         .info-cards {
-          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         }
 
         .history-controls {
-          flex-direction: column;
+            flex-direction: column;
         }
-      }
+    }
 
-      @media (max-width: 480px) {
+    @media (max-width: 480px) {
         .info-cards {
-          grid-template-columns: 1fr;
+            grid-template-columns: 1fr;
         }
-      }
-
-      .result-section {
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--border-glow);
-      }
-
-      .result-content h4 {
-        color: var(--accent-blue);
-        margin-bottom: 0.5rem;
-        font-size: 1rem;
-        text-shadow: 0 0 3px currentColor;
-      }
-
-      .result-output {
-        background-color: rgba(0, 0, 0, 0.3);
-        border: 1px solid var(--border-glow);
-        border-radius: 2px;
-        padding: 0.75rem;
-        margin-bottom: 1rem;
-        font-family: "Courier New", monospace;
-        font-size: 1.1rem;
-        min-height: 50px;
-        color: var(--terminal-green);
-        text-shadow: 0 0 3px currentColor;
-      }
-
-      .evaluation-buttons {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-
-      .satisfactory-btn {
-        background: linear-gradient(to bottom, var(--secondary-bg), #000);
-        color: var(--text-primary);
-        border: 1px solid #10b981;
-        padding: 0.5rem 0.75rem;
-        border-radius: 2px;
-        font-size: 0.9rem;
-        cursor: pointer;
-        flex: 1;
-        min-width: 120px;
-        transition: all 0.3s ease;
-        text-shadow: 0 0 3px currentColor;
-      }
-
-      .satisfactory-btn:hover {
-        box-shadow: 0 0 10px #10b981;
-      }
-
-      .improve-btn {
-        background: linear-gradient(to bottom, var(--secondary-bg), #000);
-        color: var(--text-primary);
-        border: 1px solid var(--accent-purple);
-        padding: 0.5rem 0.75rem;
-        border-radius: 2px;
-        font-size: 0.9rem;
-        cursor: pointer;
-        flex: 1;
-        min-width: 120px;
-        transition: all 0.3s ease;
-        text-shadow: 0 0 3px currentColor;
-      }
-
-      .improve-btn:hover {
-        box-shadow: 0 0 10px var(--accent-purple);
-      }
-
-      .add-pattern-btn {
-        background: linear-gradient(to bottom, var(--secondary-bg), #000);
-        color: var(--text-primary);
-        border: 1px solid var(--accent-blue);
-        padding: 0.5rem 0.75rem;
-        border-radius: 2px;
-        font-size: 0.9rem;
-        cursor: pointer;
-        flex: 1;
-        min-width: 120px;
-        transition: all 0.3s ease;
-        text-shadow: 0 0 3px currentColor;
-      }
-
-      .add-pattern-btn:hover {
-        box-shadow: 0 0 10px var(--accent-blue);
-      }
-    </style>
+    }
+</style>
   </head>
   <body>
     <!-- Encabezado principal -->
