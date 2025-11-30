@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Operaciones Algebraicas</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 <style>
 * {
     margin: 0;
@@ -12,13 +16,13 @@
 }
 
 body {
-    font-family: 'Courier New', monospace;
     background-color: #0a0a14;
     color: #e0d8ff;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Fondo con gradientes de círculos morados/azules y efecto de rejilla sutil */
     background-image: 
         radial-gradient(circle at 10% 20%, rgba(90, 30, 150, 0.1) 0%, transparent 20%),
         radial-gradient(circle at 90% 80%, rgba(120, 40, 200, 0.1) 0%, transparent 20%);
@@ -33,6 +37,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
+    /* Rejilla sutil en tono violeta */
     background: 
         linear-gradient(90deg, transparent 98%, rgba(138, 43, 226, 0.03) 100%),
         linear-gradient(0deg, transparent 98%, rgba(138, 43, 226, 0.03) 100%);
@@ -45,13 +50,17 @@ body::before {
     width: 100%;
     max-width: 600px;
     padding: 2rem;
+    /* Fondo oscuro semi-transparente con filtro de desenfoque */
     background: rgba(20, 15, 35, 0.7);
-    border: 1px solid #8a2be2;
+    border: 1px solid #8a2be2; /* Borde violeta */
+    /* Sombra exterior e interior */
     box-shadow: 
         0 0 20px rgba(138, 43, 226, 0.3),
         inset 0 0 20px rgba(138, 43, 226, 0.1);
     backdrop-filter: blur(5px);
     position: relative;
+    /* Borde animado de glow (estático en este CSS, pero visualmente atractivo) */
+    border-radius: 4px; 
 }
 
 .container::after {
@@ -61,6 +70,7 @@ body::before {
     left: -2px;
     right: -2px;
     bottom: -2px;
+    /* Gradiente multicolor para el glow */
     background: linear-gradient(45deg, #8a2be2, #4b0082, #9400d3, #8a2be2);
     z-index: -1;
     border-radius: inherit;
@@ -72,7 +82,7 @@ h1 {
     text-align: center;
     font-size: 2.2rem;
     font-weight: 300;
-    color: #b19cd9;
+    color: #b19cd9; /* Violeta claro */
     margin-bottom: 3rem;
     text-shadow: 0 0 10px rgba(177, 156, 217, 0.5);
     letter-spacing: 2px;
@@ -87,6 +97,7 @@ h1::after {
     transform: translateX(-50%);
     width: 100px;
     height: 1px;
+    /* Línea divisoria degradada */
     background: linear-gradient(90deg, transparent, #8a2be2, transparent);
 }
 
@@ -103,7 +114,7 @@ label {
     display: block;
     font-size: 1rem;
     font-weight: 500;
-    color: #c9b8ff;
+    color: #c9b8ff; /* Violeta claro */
     margin-bottom: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -113,9 +124,10 @@ textarea {
     width: 100%;
     min-height: 100px;
     padding: 1rem;
+    /* Fondo oscuro para las áreas de texto */
     background-color: rgba(10, 8, 20, 0.8);
-    border: 1px solid #6a0dad;
-    border-radius: 0;
+    border: 1px solid #6a0dad; /* Borde morado oscuro */
+    border-radius: 0; /* Bordes rectos */
     color: #e0d8ff;
     font-size: 0.95rem;
     font-family: 'Courier New', monospace;
@@ -126,7 +138,7 @@ textarea {
 
 textarea:focus {
     outline: none;
-    border-color: #9370db;
+    border-color: #9370db; /* Violeta brillante al enfocar */
     box-shadow: 0 0 15px rgba(147, 112, 219, 0.4);
     background-color: rgba(15, 12, 25, 0.9);
 }
@@ -160,6 +172,7 @@ textarea::placeholder {
     left: -100%;
     width: 100%;
     height: 100%;
+    /* Efecto de escaneo de izquierda a derecha */
     background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.4), transparent);
     transition: left 0.5s;
 }
@@ -171,7 +184,7 @@ textarea::placeholder {
 }
 
 .calculate-button:hover::before {
-    left: 100%;
+    left: 100%; /* La animación de escaneo se activa al pasar el ratón */
 }
 
 .result-section {
@@ -193,6 +206,7 @@ textarea::placeholder {
     left: 0;
     width: 100%;
     height: 100%;
+    /* Efecto de esquina para el info-card */
     background: linear-gradient(45deg, transparent 95%, rgba(138, 43, 226, 0.1) 100%);
     pointer-events: none;
 }
@@ -220,6 +234,22 @@ textarea::placeholder {
     border-radius: 0;
 }
 
+/* Estilos adicionales para los tipos de resultado (usados por JS) */
+.result-content.result-error {
+    color: #ff6347; /* Rojo coral */
+    border-left-color: #ff6347;
+}
+
+.result-content.result-warning {
+    color: #ffd700; /* Dorado */
+    border-left-color: #ffd700;
+}
+
+.result-content.result-success {
+    color: #3cb371; /* Verde medio */
+    border-left-color: #3cb371;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
@@ -237,6 +267,8 @@ textarea::placeholder {
     }
 }
 
+/* ==================== KEYFRAMES Y ANIMACIÓN ==================== */
+
 @keyframes glitch {
     0% { transform: translate(0); }
     20% { transform: translate(-2px, 2px); }
@@ -247,9 +279,10 @@ textarea::placeholder {
 }
 
 .calculate-button:active {
+    /* Activa la animación 'glitch' al hacer clic, dando un efecto de error temporal */
     animation: glitch 0.3s;
 }
-</style>
+</style
 </head>
 <body>
     <div class="container">
