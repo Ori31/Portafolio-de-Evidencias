@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
         /* ==================== RESET BÁSICO Y TIPOGRAFÍA ==================== */
         * {
@@ -24,51 +25,28 @@
         }
 
         body {
-            font-family: "Tiny5", sans-serif;
+           
             line-height: 1.4;
-            background-color: rgba(121, 214, 218, 0.479);
-            color: black;
-            padding: 10px;
+            
+            
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            border: 2px solid black;
-            background-color: aliceblue;
-            padding: 20px;
-            border-radius: 15px;
-        }
+        
 
         /* ==================== ENCABEZADOS ==================== */
-        h1 {
-            font-size: 34px;
-            margin-bottom: 10px;
-            color: rgb(121, 164, 201);
-            text-align: center;
+      
+
+        
+
+        h4 {
+color: rgb(81, 222, 244);            
         }
 
-        h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: black;
-        }
-
-        h3 {
-            font-size: 26px;
-            margin-bottom: 10px;
-            color: black;
-        }
-
-        p {
-            font-size: 24px;
-            margin: 5px 0;
-            text-align: center;
-        }
-
+      
         /* ==================== CONTROLES Y FORMULARIOS ==================== */
         .controls {
-            border: 2px solid black;
+            background-color: rgba(168, 203, 234, 0.556);
+            border: 2px solid rgb(81, 222, 244);
             padding: 20px;
             margin-bottom: 20px;
         }
@@ -77,17 +55,31 @@
             margin-bottom: 20px;
         }
 
+        small{
+            color: rgb(122, 195, 222);
+        }
+
+        span{
+
+            color: rgb(122, 195, 222);
+
+        }
+        label{
+
+            color: rgb(122, 195, 222);
+        }
         .input-group label {
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
-            color: black;
+            color: rgb(122, 195, 222);
+        
         }
 
         .input-group input {
             width: 300px;
             padding: 8px;
-            border: 2px solid black;
+            border: 2px solid rgb(81, 222, 244);
             font-size: 16px;
             margin-bottom: 10px;
         }
@@ -102,7 +94,7 @@
             padding: 10px 20px;
             font-size: 14px;
             font-weight: bold;
-            border: 2px solid black;
+            border: 2px solid rgb(81, 222, 244);
             background-color: blue;
             color: white;
             cursor: pointer;
@@ -123,12 +115,12 @@
         .preset-section h3 {
             font-size: 26px;
             margin-bottom: 10px;
-            color: black;
+            
         }
 
         .preset-section p {
             margin-bottom: 15px;
-            color: black;
+           
             font-size: 24px;
             text-align: left;
         }
@@ -160,13 +152,14 @@
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 15px;
+            background-color: rgba(168, 203, 234, 0.556);
         }
 
         .number-line-container h2 {
             font-size: 28px;
             margin-bottom: 15px;
             text-align: center;
-            color: black;
+            
         }
 
         .number-line {
@@ -174,7 +167,7 @@
             height: 100px;
             position: relative;
             background-color: white;
-            border: 1px solid black;
+            border: 1px solid rgb(81, 222, 244);
             margin: 20px 0;
         }
 
@@ -184,7 +177,7 @@
         }
 
         .range-info small {
-            color: black;
+            
             font-size: 22px;
         }
 
@@ -211,7 +204,7 @@
             top: 65px;
             font-size: 22px;
             font-weight: bold;
-            color: black;
+            
             transform: translateX(-50%);
         }
 
@@ -247,7 +240,7 @@
             top: -25px;
             transform: translateX(-50%);
             background-color: white;
-            border: 1px solid black;
+            border: 1px solid rgb(81, 222, 244);
             padding: 2px 4px;
             font-size: 14px;
             font-weight: bold;
@@ -259,12 +252,14 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            
         }
 
         .classification-panel,
         .points-panel,
         .distance-calculator {
-            border: 2px solid black;
+            border: 2px solid rgb(81, 222, 244);
+            background-color: rgba(168, 203, 234, 0.556);
             padding: 15px;
         }
 
@@ -273,8 +268,7 @@
         .distance-calculator h3 {
             font-size: 26px;
             margin-bottom: 15px;
-            color: black;
-            border-bottom: 2px solid black;
+            border-bottom: 2px solid rgb(81, 222, 244);
             padding-bottom: 5px;
         }
 
@@ -294,7 +288,7 @@
         .legend-color {
             width: 20px;
             height: 20px;
-            border: 2px solid black;
+            border: 2px solid rgb(81, 222, 244);
         }
 
         .legend-color.naturals {
@@ -316,7 +310,7 @@
         .classification-info h4 {
             font-size: 24px;
             margin: 15px 0 10px 0;
-            color: black;
+            
         }
 
         .classification-info ul {
@@ -335,7 +329,7 @@
 
         .empty-state p {
             font-size: 14px;
-            color: black;
+            
             text-align: center;
             margin: 20px 0;
         }
@@ -344,7 +338,6 @@
             display: block;
             text-align: center;
             font-size: 22px;
-            color: black;
         }
 
         .point-item {
@@ -353,14 +346,13 @@
             align-items: center;
             padding: 10px;
             margin: 5px 0;
-            border: 1px solid black;
+            border: 1px solid rgb(81, 222, 244);
         }
 
         /* ================== CALCULADORA DE DISTANCIAS ================== */
         .calculator-description {
             margin-bottom: 15px;
             font-size: 23px;
-            color: black;
             text-align: left;
         }
 
@@ -376,7 +368,6 @@
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
-            color: black;
         }
 
         .custom-select {
@@ -386,7 +377,7 @@
 
         .select-selected {
             padding: 8px 30px 8px 10px;
-            border: 2px solid black;
+            border: 2px solid rgb(81, 222, 244);
             background-color: white;
             cursor: pointer;
             font-size: 24px;
@@ -407,7 +398,7 @@
             left: 0;
             right: 0;
             background-color: white;
-            border: 2px solid black;
+            border: 2px solid rgb(81, 222, 244);
             border-top: none;
             z-index: 1000;
             max-height: 150px;
@@ -422,7 +413,7 @@
         .select-items div {
             padding: 8px 10px;
             cursor: pointer;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid rgb(81, 222, 244);
             font-size: 23px;
         }
 
@@ -436,7 +427,7 @@
             padding: 12px;
             background-color: blue;
             color: white;
-            border: 2px solid black;
+            border: 2px solid rgb(81, 222, 244);
             font-size: 24px;
             font-weight: bold;
             cursor: pointer;
@@ -446,7 +437,7 @@
         .distance-placeholder {
             text-align: center;
             padding: 20px;
-            border: 1px solid black;
+            border: 1px solid rgb(81, 222, 244);
         }
 
         .distance-result {
